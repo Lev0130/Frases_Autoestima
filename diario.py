@@ -21,6 +21,7 @@ parser.add_argument("-f1", "--frase_1", type=str, required=False)
 parser.add_argument("-f2", "--frase_2", type=str, required=False)
 parser.add_argument("-f3", "--frase_3", type=str, required=False)
 parser.add_argument("--start", action="store_true", required=False)
+parser.add_argument("--read", action="store_true", required=False)
 
 args = parser.parse_args()
 
@@ -42,9 +43,13 @@ if all(respuestas):
     print(respuestas_para_guardar)
 
     with open("autoestima.txt", "a", encoding="utf-8") as file:
-                    file.write(f"{date.today()}\n")
-                    for frase, respuesta in respuestas_para_guardar:
-                        file.write(f"{frase}{respuesta}.\n\n")
-                    file.write("\n\n")
+        file.write(f"{date.today()}\n")
+        for frase, respuesta in respuestas_para_guardar:
+            file.write(f"{frase}{respuesta}.\n\n")
+        file.write("\n\n")
 
-                
+if args.read:
+    with open("autoestima.txt", "r", encoding="utf-8") as file:
+        for line in file:
+            line = line.rstrip()
+            print(line)
