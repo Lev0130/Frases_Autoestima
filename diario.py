@@ -3,6 +3,16 @@
 #crear un loggin
 import argparse
 from datetime import date
+import re
+
+import logging
+
+# Configuración básica
+logging.basicConfig(
+    filename="diario.log",   # archivo donde se guardan los logs
+    level=logging.INFO,      # nivel mínimo que se guarda
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 respuestas_para_guardar = []
 
@@ -22,6 +32,7 @@ parser.add_argument("-f2", "--frase_2", type=str, required=False)
 parser.add_argument("-f3", "--frase_3", type=str, required=False)
 parser.add_argument("--start", action="store_true", required=False)
 parser.add_argument("--read", action="store_true", required=False)
+parser.add_argument("-b", "--buscar", type=str, required=False)
 
 args = parser.parse_args()
 
@@ -53,3 +64,13 @@ if args.read:
         for line in file:
             line = line.rstrip()
             print(line)
+            
+if args.buscar:
+    with open("autoestima.txt", "r", encoding="utf-8") as file:
+        file = file.read()
+        bloques = file.split("\n\n\n")
+        #parte_resultado = re.findall(f"^{args.buscar}.*\n\n", file, re.MULTILINE)
+        for bloque in bloques:
+            if bloque.startswith(args.buscar):
+                print(f"\n{bloque}\n")
+        
