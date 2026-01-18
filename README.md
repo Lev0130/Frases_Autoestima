@@ -8,7 +8,8 @@ Al realizar el ejercico un par de días, se me ocurrió automatizarlo para hacer
 
 Este programa se ha realizado usando argparse, por lo que para iniciarlo en la consola debenos nombrar a python y el archivo diario.py 
 
-Argumentos a nuestra disposición:
+
+## Argumentos a nuestra disposición:
 
 --start  (muestra las frases a rellenar)
 
