@@ -1,4 +1,3 @@
-
 # Frases Autoestima de Branden
 
 Tras leer los 6 pilares de la Autoestima de Nathaniel Branden, quise llevar a cabo uno de los ejercicios que propone para analizate y llevar un registro de tu autoestima.
